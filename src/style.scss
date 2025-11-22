@@ -3,7 +3,7 @@
 
 // Variables
 $color-bg: #18202b; // Stary kolor tła (dla FAQ/Footer)
-$color-bg-dark: #141C25; // Nowy, ciemniejszy kolor (dla Blog/Mapa/Why-Us/Reviews)
+$color-bg-dark: #141C25; // Nowy, ciemniejszy kolor (dla Blog/Mapa/Why-Us/Reviews/Stats)
 $color-text: #ffffff;
 $color-text-dark: #1A1A1A; // Ciemny tekst na kartach
 $color-text-muted: #b0b0b0;
@@ -29,6 +29,95 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+// Stats Section (Numbers)
+.stats {
+  background-color: $color-bg-dark;
+  color: $color-text;
+  padding: space(3xl) 0;
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 space(l);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: space(2xl);
+    row-gap: space(3xl); // Większy odstęp między rzędami
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr; // Jedna kolumna na mobile
+      gap: space(xl);
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &--header {
+      // Pierwszy element to nagłówek sekcji
+      @media (max-width: 900px) {
+        text-align: center;
+        align-items: center;
+        margin-bottom: space(l);
+      }
+    }
+
+    &:not(&--header) {
+      padding-left: space(l);
+      border-left: 1px solid rgba($color-text, 0.2); // Linia oddzielająca
+
+      @media (max-width: 900px) {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid rgba($color-text, 0.2); // Na mobile linia u góry? Albo brak
+        padding-top: space(m);
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: step(4); // Duży nagłówek
+    font-weight: 700;
+    line-height: 1.2;
+    color: $color-text;
+  }
+
+  &__number {
+    font-family: $font-heading;
+    font-size: step(3); // Duża liczba
+    font-weight: 700;
+    color: $color-text;
+    margin-bottom: space(2xs);
+  }
+
+  &__label {
+    font-family: $font-body;
+    font-size: step(0);
+    font-weight: 700;
+    color: $color-text;
+    margin-bottom: space(3xs);
+    
+    span {
+      font-weight: 400; // Część po myślniku może być lżejsza, ale tu wszystko jest w label
+    }
+  }
+
+  &__desc {
+    font-family: $font-body;
+    font-size: step(-1);
+    color: $color-text-muted;
+    line-height: 1.5;
+  }
 }
 
 // Reviews Section
