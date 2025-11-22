@@ -27,6 +27,118 @@ body {
   justify-content: flex-end; // Stopka na dole przy pustej stronie
 }
 
+// Map Section
+.map-section {
+  background-color: $color-bg;
+  color: $color-text;
+  padding: space(3xl) 0; // Duży padding góra/dół
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 space(l);
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; // Wyrównanie do dołu linii tekstu
+    margin-bottom: space(3xl); // Duży odstęp przed mapą
+    gap: space(l);
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: space(m);
+    }
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: step(4); // Jak w CTA
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 15ch; // Ograniczenie szerokości
+  }
+
+  &__subtitle {
+    font-family: $font-body;
+    font-size: step(0);
+    color: $color-text-muted;
+    text-align: right;
+    line-height: 1.5;
+
+    @media (max-width: 768px) {
+      text-align: left;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; // Dwie równe kolumny
+    gap: space(2xl);
+    align-items: center;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr; // Jedna kolumna na mniejszych
+      gap: space(xl);
+    }
+  }
+
+  &__map-col {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__map-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__cities-col {
+    font-family: $font-body;
+  }
+
+  &__region-title {
+    font-family: $font-heading;
+    font-size: step(3); // Duży nagłówek regionu
+    margin-bottom: space(xl);
+    color: $color-text;
+  }
+
+  &__cities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // 3 kolumny miast
+    gap: space(l);
+    
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr 1fr; // 2 kolumny na mobile
+      gap: space(m);
+    }
+    
+    @media (max-width: 400px) {
+      grid-template-columns: 1fr; // 1 kolumna na bardzo małych
+    }
+  }
+
+  &__cities-list {
+    list-style: none;
+    padding-left: space(l);
+    border-left: 1px solid rgba($color-text, 0.2); // Subtelna linia
+    
+    display: flex;
+    flex-direction: column;
+    gap: space(s); // Odstępy między miastami
+
+    li {
+      font-size: step(-1);
+      color: $color-text; // Biały tekst
+      font-weight: 300;
+    }
+  }
+}
+
 // Footer Styles
 .footer {
   background-color: $color-bg;
@@ -226,8 +338,6 @@ body {
     line-height: 1.3;
     margin-bottom: space(m);
     color: $color-text;
-
-    // Removed manual media query for font-size as step(4) is fluid
   }
 
   &__desc {
