@@ -41,16 +41,11 @@ body {
 
   &__header {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end; // Wyrównanie do dołu linii tekstu
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     margin-bottom: space(3xl); // Duży odstęp przed mapą
-    gap: space(l);
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: space(m);
-    }
+    gap: space(s);
   }
 
   &__title {
@@ -58,19 +53,14 @@ body {
     font-size: step(4); // Jak w CTA
     font-weight: 700;
     line-height: 1.2;
-    max-width: 15ch; // Ograniczenie szerokości
   }
 
   &__subtitle {
     font-family: $font-body;
     font-size: step(0);
     color: $color-text-muted;
-    text-align: right;
     line-height: 1.5;
-
-    @media (max-width: 768px) {
-      text-align: left;
-    }
+    max-width: 50ch; // Ensure nice wrapping ~2 lines
   }
 
   &__content {
