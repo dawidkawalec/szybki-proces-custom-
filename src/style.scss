@@ -3,7 +3,7 @@
 
 // Variables
 $color-bg: #18202b; // Stary kolor tła (dla FAQ/Footer)
-$color-bg-dark: #141C25; // Nowy, ciemniejszy kolor (dla Blog/Mapa/Why-Us)
+$color-bg-dark: #141C25; // Nowy, ciemniejszy kolor (dla Blog/Mapa/Why-Us/Reviews)
 $color-text: #ffffff;
 $color-text-dark: #1A1A1A; // Ciemny tekst na kartach
 $color-text-muted: #b0b0b0;
@@ -29,6 +29,194 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+// Reviews Section
+.reviews {
+  background-color: $color-bg-dark;
+  color: $color-text;
+  padding: space(3xl) 0;
+  overflow-x: hidden; // Zapobiega poziomemu scrollowi strony przez wystający slider
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 space(l);
+    
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; // Lewa kolumna mniejsza, prawa szersza na slider
+    gap: space(2xl);
+    align-items: center;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr; // Na mniejszych ekranach jedna kolumna
+      gap: space(xl);
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: space(m);
+    max-width: 45ch;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: step(3);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  &__desc {
+    font-family: $font-body;
+    font-size: step(0);
+    color: $color-text-muted;
+    line-height: 1.6;
+    margin-bottom: space(m);
+  }
+
+  &__nav {
+    display: flex;
+    gap: space(m);
+  }
+
+  &__btn {
+    width: 50px;
+    height: 50px;
+    border: 1px solid $color-accent;
+    background: transparent;
+    color: $color-accent;
+    border-radius: 50%; // Okrągłe przyciski? Na screenie są strzałki bez tła? 
+    // Na screenie: strzałki są proste, bez koła.
+    // Zróbmy minimalistyczne jak na screenie: same strzałki
+    border: none;
+    border-radius: 0;
+    width: auto;
+    height: auto;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    
+    svg {
+      width: 48px; // Duże strzałki
+      height: 48px;
+      stroke-width: 0.5; // Cienkie linie
+    }
+
+    &:hover {
+      opacity: 0.7;
+      transform: scale(1.1);
+    }
+
+    &--prev {
+      // Opcjonalnie
+    }
+  }
+
+  // Slider Wrapper
+  &__slider-wrapper {
+    width: 100%;
+    // Klucz do wystawania poza kontener:
+    // Jeśli chcemy, żeby slajdy wyjeżdżały w prawo poza max-width kontenera:
+    margin-right: -50vw; // Rozciągnij w prawo
+    padding-right: 50vw; // ...ale zachowaj padding? Nie.
+    
+    // Prostsza metoda: overflow visible na swiperze + width: 100% kolumny
+    min-width: 0; // Ważne dla grida
+  }
+}
+
+// Swiper Custom Styles
+.reviews-swiper {
+  overflow: visible !important; // Pozwala slajdom wystawać poza kontener swipera
+  
+  .swiper-slide {
+    width: 400px; // Stała szerokość karty? Lub auto
+    height: auto;
+    opacity: 0.4; // Nieaktywne slajdy przygaszone (opcjonalnie, jak na screenie 3-cia karta ciemna)
+    transition: opacity 0.3s ease;
+
+    &.swiper-slide-active,
+    &.swiper-slide-next {
+      opacity: 1; // Aktywny i następny widoczne
+    }
+  }
+}
+
+// Review Card
+.review-card {
+  background-color: transparent; // Przezroczyste tło
+  // Lub bardzo ciemne? Na screenie wygląda jak przezroczyste na ciemnym tle
+  display: flex;
+  flex-direction: column;
+  gap: space(m);
+  
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: space(m);
+  }
+
+  &__avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: space(3xs);
+  }
+
+  &__name {
+    font-family: $font-heading;
+    font-size: step(0);
+    font-weight: 700;
+    color: $color-text;
+  }
+
+  &__role {
+    font-family: $font-body;
+    font-size: step(-2);
+    color: $color-text-muted;
+  }
+
+  &__text {
+    font-family: $font-body;
+    font-size: step(-1);
+    line-height: 1.6;
+    color: rgba($color-text, 0.9);
+    font-style: italic; // Cytat
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: space(s);
+  }
+
+  &__stars {
+    display: flex;
+    color: $color-accent; // Złote gwiazdki
+    gap: 2px;
+  }
+
+  &__score {
+    font-family: $font-body;
+    font-size: step(0);
+    font-weight: 600;
+    color: $color-text;
+  }
 }
 
 // Why Us Section
@@ -378,568 +566,6 @@ body {
 
     &:hover {
       background-color: lighten($color-accent, 10%);
-    }
-  }
-}
-
-// Map Section
-.map-section {
-  background-color: $color-bg-dark; // Zmiana tła na nowe
-  color: $color-text;
-  padding: space(3xl) 0;
-
-  &__container {
-    max-width: $container-max-width;
-    margin: 0 auto;
-    padding: 0 space(l);
-  }
-
-  &__header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: space(2xl);
-    gap: space(s);
-  }
-
-  &__title {
-    font-family: $font-heading;
-    font-size: step(4);
-    font-weight: 700;
-    line-height: 1.2;
-  }
-
-  &__subtitle {
-    font-family: $font-body;
-    font-size: step(0);
-    color: $color-text-muted;
-    line-height: 1.5;
-    max-width: 50ch;
-  }
-
-  &__content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: space(2xl);
-    align-items: center;
-
-    @media (max-width: 1024px) {
-      grid-template-columns: 1fr;
-      gap: space(xl);
-    }
-  }
-
-  &__map-col {
-    display: flex;
-    justify-content: center;
-  }
-
-  &__map-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  &__cities-col {
-    font-family: $font-body;
-  }
-
-  &__region-title {
-    font-family: $font-heading;
-    font-size: step(3);
-    margin-bottom: space(xl);
-    color: $color-text;
-  }
-
-  &__cities-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: space(l);
-    
-    @media (max-width: 640px) {
-      grid-template-columns: 1fr 1fr;
-      gap: space(m);
-    }
-    
-    @media (max-width: 400px) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  &__cities-list {
-    list-style: none;
-    padding-left: space(l);
-    border-left: 1px solid rgba($color-text, 0.2);
-    
-    display: flex;
-    flex-direction: column;
-    gap: space(s);
-
-    li {
-      font-size: step(-1);
-      color: $color-text;
-      font-weight: 300;
-    }
-  }
-}
-
-// FAQ & Contact Section
-.faq-contact {
-  background-color: $color-bg;
-  color: $color-text;
-  padding: space(3xl) 0;
-  // Usunąłem border-top, bo teraz jest sekcja nad nim
-
-  &__container {
-    max-width: $container-max-width;
-    margin: 0 auto;
-    padding: 0 space(l);
-    
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: space(3xl);
-    align-items: start;
-
-    @media (max-width: 1024px) {
-      grid-template-columns: 1fr;
-      gap: space(2xl);
-    }
-  }
-
-  &__heading {
-    font-family: $font-heading;
-    font-size: step(3);
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: space(xl);
-    color: $color-text;
-    max-width: 25ch;
-  }
-}
-
-// Accordion (FAQ) Styles
-.faq {
-  display: flex;
-  flex-direction: column;
-  
-  &__item {
-    border-bottom: 1px solid rgba($color-text, 0.2);
-    transition: background-color 0.3s ease;
-
-    &:first-child {
-      border-top: 1px solid rgba($color-text, 0.2);
-    }
-
-    &--active {
-      background-color: $color-accent;
-      border-bottom: none;
-
-      .faq__question {
-        color: #000;
-        font-weight: 500;
-      }
-
-      .faq__icon {
-        transform: rotate(180deg);
-        color: #000;
-      }
-
-      .faq__content {
-        max-height: 500px;
-        opacity: 1;
-        padding-bottom: space(l);
-      }
-      
-      .faq__text {
-        color: rgba(0, 0, 0, 0.8);
-      }
-    }
-  }
-
-  &__header {
-    width: 100%;
-    background: none;
-    border: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: space(l) space(m);
-    cursor: pointer;
-    text-align: left;
-    gap: space(m);
-
-    &:hover {
-      background-color: rgba($color-text, 0.05);
-    }
-    
-    .faq__item--active &:hover {
-      background-color: transparent;
-    }
-  }
-
-  &__question {
-    font-family: $font-heading;
-    font-size: step(0);
-    font-weight: 700;
-    color: $color-text;
-    transition: color 0.3s ease;
-  }
-
-  &__icon {
-    color: $color-accent;
-    transition: transform 0.3s ease, color 0.3s ease;
-    display: flex;
-    align-items: center;
-  }
-
-  &__content {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    padding: 0 space(m);
-    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
-  }
-
-  &__text {
-    font-family: $font-body;
-    font-size: step(-1);
-    line-height: 1.6;
-    color: $color-text-muted;
-    padding-top: 0;
-    max-width: 60ch;
-  }
-}
-
-// Contact Form Styles
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: space(l);
-  padding-top: space(s);
-
-  &__group {
-    display: flex;
-    flex-direction: column;
-    gap: space(2xs);
-    position: relative;
-  }
-
-  &__label {
-    font-family: $font-body;
-    font-size: step(-1);
-    color: $color-text-muted;
-  }
-
-  &__input,
-  &__textarea,
-  &__select {
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid rgba($color-text, 0.3);
-    color: $color-text;
-    font-family: $font-body;
-    font-size: step(0);
-    padding: space(s) 0;
-    border-radius: 0;
-    transition: border-color 0.3s ease;
-
-    &:focus {
-      outline: none;
-      border-bottom-color: $color-accent;
-    }
-
-    &::placeholder {
-      color: rgba($color-text, 0.3);
-    }
-  }
-  
-  &__textarea {
-    min-height: 120px;
-    resize: vertical;
-  }
-
-  &__select-wrapper {
-    position: relative;
-  }
-
-  &__select {
-    appearance: none;
-    cursor: pointer;
-  }
-
-  &__select-icon {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    color: $color-text;
-  }
-
-  &__footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: space(l);
-    margin-top: space(m);
-
-    @media (max-width: 640px) {
-      flex-direction: column-reverse;
-      align-items: stretch;
-    }
-  }
-
-  &__legal {
-    font-size: step(-2);
-    color: $color-text-muted;
-    line-height: 1.4;
-    max-width: 35ch;
-  }
-
-  &__btn {
-    background-color: $color-accent;
-    color: #000;
-    border: none;
-    padding: space(s) space(xl);
-    font-family: $font-body;
-    font-weight: 600;
-    font-size: step(0);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    white-space: nowrap;
-
-    &:hover {
-      background-color: lighten($color-accent, 10%);
-      transform: translateY(-2px);
-    }
-  }
-}
-
-// Footer Styles
-.footer {
-  background-color: $color-bg;
-  color: $color-text;
-  padding-top: space(2xl);
-  font-size: step(-1);
-  line-height: 1.6;
-
-  &__container {
-    max-width: $container-max-width;
-    margin: 0 auto;
-    padding: 0 space(l);
-
-    @media (min-width: 1024px) {
-      display: grid;
-      grid-template-columns: 2.5fr 1.5fr 1.5fr 2fr 1fr;
-      gap: space(l);
-    }
-
-    @media (max-width: 1023px) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: space(l);
-    }
-
-    @media (max-width: 640px) {
-      grid-template-columns: 1fr;
-    }
-    
-    &--bottom {
-      max-width: $container-max-width;
-      margin: 0 auto;
-      padding: space(l);
-      
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      
-      border-top: 1px solid rgba($color-accent, 0.3);
-      margin-top: space(xl);
-      gap: space(l);
-
-      @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-        gap: space(m);
-        padding: space(l);
-      }
-    }
-  }
-
-  &__col {
-    display: flex;
-    flex-direction: column;
-    
-    &--brand {
-      padding-right: space(l);
-    }
-  }
-
-  &__logo {
-    max-width: 180px;
-    height: auto;
-    margin-bottom: space(m);
-    display: block;
-  }
-
-  &__desc {
-    color: $color-text-muted;
-    font-size: step(-1);
-    max-width: 35ch;
-    line-height: 1.6;
-  }
-
-  &__heading {
-    font-family: $font-heading;
-    font-size: step(1);
-    font-weight: 700;
-    margin-bottom: space(m);
-    color: $color-text;
-  }
-
-  &__heading-spacer {
-    height: step(1);
-    margin-bottom: space(m);
-    
-    @media (max-width: 1023px) {
-      display: none;
-    }
-  }
-
-  &__list {
-    list-style: none;
-    
-    &--icons {
-      .footer__item {
-        display: flex;
-        align-items: center;
-        gap: space(2xs);
-      }
-    }
-  }
-
-  &__item {
-    margin-bottom: space(s);
-    display: flex;
-    align-items: flex-start;
-    
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  &__link {
-    color: $color-text;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-weight: 300;
-
-    &:hover {
-      color: $color-accent;
-    }
-
-    &--legal {
-      margin-left: 0;
-      font-size: step(-1);
-      color: $color-text-muted;
-
-      &:hover {
-        color: $color-text;
-      }
-    }
-  }
-
-  &__icon {
-    color: $color-text;
-    min-width: 20px;
-  }
-
-  &__text {
-    color: $color-text;
-    font-weight: 300;
-  }
-
-  &__legal {
-    display: flex;
-    gap: space(l);
-    justify-self: end;
-
-    @media (max-width: 640px) {
-      justify-self: start;
-      width: 100%;
-      justify-content: flex-start;
-      gap: space(m);
-    }
-  }
-
-  &__copyright {
-    color: $color-text;
-    font-size: step(-1);
-  }
-
-  &__bottom {
-  }
-}
-
-// CTA Section
-.cta {
-  position: relative;
-  background-color: $color-bg;
-  background-image: url('/img/CTA-bg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: space(3xl) space(l);
-  text-align: center;
-  color: $color-text;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &__container {
-    position: relative;
-    max-width: $container-max-width;
-    margin: 0 auto;
-  }
-
-  &__heading {
-    font-family: $font-heading;
-    font-size: step(4);
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: space(m);
-    color: $color-text;
-  }
-
-  &__desc {
-    font-family: $font-body;
-    font-size: step(0);
-    line-height: 1.6;
-    color: rgba($color-text, 0.9);
-    max-width: 65ch;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: space(l);
-    font-weight: 300;
-  }
-
-  &__btn {
-    display: inline-block;
-    background-color: $color-accent;
-    color: #000000;
-    font-family: $font-body;
-    font-weight: 500;
-    text-decoration: none;
-    padding: space(s) space(l);
-    border-radius: 4px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    font-size: step(0);
-
-    &:hover {
-      background-color: lighten($color-accent, 10%);
-      transform: translateY(-2px);
     }
   }
 }

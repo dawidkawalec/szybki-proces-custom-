@@ -28,3 +28,30 @@ faqHeaders.forEach(header => {
     }
   });
 });
+
+// Initialize Swiper for Reviews
+// Sprawdzamy czy Swiper jest załadowany (z CDN)
+if (typeof Swiper !== 'undefined') {
+  new Swiper('.reviews-swiper', {
+    slidesPerView: 'auto', // Slajdy mają width z CSS (400px)
+    spaceBetween: 32, // Odstęp (space-l/xl)
+    centeredSlides: false, // Zaczynamy od lewej
+    loop: true, // Pętla
+    navigation: {
+      nextEl: '.reviews__btn--next',
+      prevEl: '.reviews__btn--prev',
+    },
+    breakpoints: {
+      // Mobile
+      320: {
+        spaceBetween: 16,
+      },
+      // Desktop
+      1024: {
+        spaceBetween: 32,
+      },
+    }
+  });
+} else {
+  console.warn('Swiper library not loaded');
+}
