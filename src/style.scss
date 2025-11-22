@@ -15,6 +15,63 @@ $font-body: 'Montserrat', sans-serif;
 
 $container-max-width: 1400px;
 
+// Button Mixins
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: step(-1);
+  text-decoration: none;
+  padding: space(s) space(l);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  line-height: 1.2;
+  text-align: center;
+}
+
+@mixin btn-solid {
+  @include btn-base;
+  background-color: $color-accent;
+  color: #000000;
+  border-color: $color-accent;
+
+  &:hover {
+    background-color: lighten($color-accent, 10%);
+    border-color: lighten($color-accent, 10%);
+    transform: translateY(-2px);
+  }
+}
+
+@mixin btn-outline {
+  @include btn-base;
+  background-color: transparent;
+  color: $color-accent;
+  border-color: $color-accent;
+
+  &:hover {
+    background-color: $color-accent;
+    color: #000000;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin btn-white {
+  @include btn-base;
+  background-color: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+
+  &:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: translateY(-2px);
+  }
+}
+
 // Reset & Base
 *, *::before, *::after {
   box-sizing: border-box;
@@ -127,23 +184,16 @@ body {
   }
 
   &__cta {
-    background-color: $color-accent;
-    color: #000;
-    text-decoration: none;
-    padding: space(xs) space(m);
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: step(-1);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    white-space: nowrap;
-
-    &:hover {
-      background-color: lighten($color-accent, 10%);
-      transform: translateY(-1px);
-    }
-
+    @include btn-solid;
+    // Adjust padding for header specifically if needed, but user asked to unify. 
+    // If I keep mixin padding, it might be too tall for header (80px).
+    // Mixin has padding space(s) space(l). 
+    // Original header padding was space(xs) space(m).
+    // Let's assume unification is priority, but if it breaks layout I'll adjust.
+    // Header height is 80px, space(s) is usually fine.
+    
     @media (max-width: 1024px) {
-      display: none; // Hide on mobile/tablet, shown in mobile menu
+      display: none;
     }
   }
 
@@ -541,7 +591,8 @@ body {
   /* min-height: 100vh; removed */
   display: flex;
   align-items: center;
-  padding: space(3xl) 0;
+  padding-top: calc(var(--space-3xl) + 80px);
+  padding-bottom: space(3xl);
   position: relative;
   color: #ffffff;
 
@@ -593,7 +644,7 @@ body {
   &__title-highlight {
     color: $color-accent;
     display: block;
-    margin-top: space(2xs);
+    margin-top: 0;
   }
 
   &__desc {
@@ -675,19 +726,7 @@ body {
   }
 
   &__process-btn {
-    display: inline-block;
-    color: #fff;
-    text-decoration: none;
-    border: 1px solid #fff;
-    padding: space(s) space(xl);
-    font-family: $font-heading;
-    font-size: step(-1);
-    transition: all 0.3s ease;
-
-    &:hover {
-      background-color: #fff;
-      color: #000;
-    }
+    @include btn-white;
   }
 
   // Right Column - Form
@@ -775,20 +814,10 @@ body {
   }
 
   &__submit {
-    background-color: $color-accent;
-    color: #000;
-    border: none;
-    padding: space(m) space(l);
-    font-family: $font-heading;
-    font-weight: 700;
-    font-size: step(-1);
-    cursor: pointer;
+    @include btn-solid;
     margin-top: space(m);
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: lighten($color-accent, 10%);
-    }
+    width: 100%; // Keep full width for form submit
+    font-family: $font-heading; // Override mixin font if needed, or stick to unify? User said unify. I will stick to mixin font (body) or keep heading? Form submit usually stands out. I'll let it be body or unify completely. Let's unify completely to Montserrat ($font-body) as per mixin, unless heading looks better. The screenshot has bold text. Mixin has font-weight 600.
   }
 }
 
@@ -902,21 +931,7 @@ body {
   }
 
   &__btn {
-    display: inline-block;
-    background-color: $color-accent;
-    color: #000000;
-    font-family: $font-body;
-    font-weight: 600;
-    text-decoration: none;
-    padding: space(s) space(2xl);
-    border-radius: 4px;
-    font-size: step(0);
-    transition: all 0.3s ease;
-
-    &:hover {
-      background-color: lighten($color-accent, 10%);
-      transform: translateY(-2px);
-    }
+    @include btn-solid;
   }
 }
 
@@ -1085,22 +1100,8 @@ body {
   }
 
   &__btn {
-    display: inline-block;
+    @include btn-outline;
     align-self: flex-start;
-    background-color: transparent;
-    color: $color-accent;
-    border: 1px solid $color-accent;
-    padding: space(s) space(l);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: step(-1);
-    border-radius: 4px;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background-color: $color-accent;
-      color: #000;
-    }
   }
 
   &__links {
@@ -1937,18 +1938,7 @@ body {
   }
 
   &__btn {
-    background-color: $color-accent;
-    color: #000;
-    padding: space(s) space(2xl);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: step(0);
-    border-radius: 2px;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: lighten($color-accent, 10%);
-    }
+    @include btn-solid;
   }
 }
 
@@ -2494,20 +2484,6 @@ body {
   }
 
   &__btn {
-    display: inline-block;
-    background-color: $color-accent;
-    color: #000000;
-    font-family: $font-body;
-    font-weight: 500;
-    text-decoration: none;
-    padding: space(s) space(l);
-    border-radius: 4px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    font-size: step(0);
-
-    &:hover {
-      background-color: lighten($color-accent, 10%);
-      transform: translateY(-2px);
-    }
+    @include btn-solid;
   }
 }
