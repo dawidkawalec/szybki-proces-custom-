@@ -1170,7 +1170,7 @@ body {
 
   &__card-body {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1fr 1.5fr;
     gap: space(xl);
     align-items: start;
     
@@ -1183,11 +1183,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: space(m);
+    order: 2;
   }
 
   &__visual-col {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    order: 1;
     
     @media (max-width: 768px) {
       justify-content: flex-start;
@@ -1214,7 +1216,7 @@ body {
 
   &__desc {
     font-family: $font-body;
-    font-size: step(0);
+    font-size: step(-1);
     line-height: 1.6;
     color: $color-text-muted;
   }
