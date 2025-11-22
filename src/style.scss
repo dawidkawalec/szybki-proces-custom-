@@ -190,10 +190,10 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh; /* Full viewport height or specific height from design */
+  /* min-height: 100vh; removed */
   display: flex;
   align-items: center;
-  padding: space(2xl) 0;
+  padding: space(3xl) 0;
   position: relative;
   color: #ffffff;
 
