@@ -939,7 +939,7 @@ body {
   }
 }
 
-// Practice Areas Section (Sticky Stack Effect)
+// Practice Areas Section (Tabs)
 .practice-areas {
   background-color: $color-bg-dark;
   color: $color-text;
@@ -957,7 +957,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: space(3xl);
+    margin-bottom: space(2xl);
     gap: space(m);
   }
 
@@ -977,74 +977,185 @@ body {
     max-width: 60ch;
   }
 
-  &__list {
+  /* Tabs Layout Desktop */
+  &__tabs-layout {
     display: flex;
-    flex-direction: column;
-    gap: space(xl); /* Odstęp między kartami zanim zaczną na siebie nachodzić */
-    padding-bottom: space(3xl);
+    gap: space(2xl);
+    min-height: 600px;
+    align-items: flex-start;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      min-height: auto;
+      gap: space(l);
+    }
   }
 
-  &__item {
-    position: sticky; /* Klucz do efektu */
-    top: 0; /* Domyślny top, nadpisywany pętlą poniżej */
-    background-color: #1e2834; /* Nieco jaśniejsze tło karty niż tło sekcji, żeby się odcinało */
-    border: 1px solid rgba($color-text, 0.1);
-    border-radius: 8px;
-    padding: space(2xl);
-    box-shadow: 0 -10px 30px rgba(0,0,0,0.3); /* Cień rzucany "w górę" na poprzednią kartę */
+  /* Sidebar (Left Column) */
+  &__sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    border-right: 1px solid rgba($color-text, 0.1);
+    padding-right: space(l);
+    display: block;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: space(s);
+    width: 100%;
+  }
+
+  &__tab-btn {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: space(s) space(m);
+    font-family: $font-heading;
+    font-size: step(0);
+    color: $color-text-muted;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    position: relative;
+
+    &:hover {
+      color: $color-text;
+      background-color: rgba($color-text, 0.05);
+    }
+
+    &.active {
+      color: $color-accent;
+      background-color: rgba($color-accent, 0.1);
+      font-weight: 700;
+      padding-left: space(l);
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 60%;
+        background-color: $color-accent;
+        border-radius: 0 4px 4px 0;
+      }
+    }
+  }
+
+  /* Content (Right Column) */
+  &__content {
+    flex-grow: 1;
+    position: relative;
+  }
+
+  &__content-pane {
+    /* Desktop: Absolute positioning for stacking + fade effect */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
     
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: space(2xl);
-    align-items: start;
-    
-    /* Minimalna wysokość, żeby scrollowanie trwało chwilę */
-    min-height: 400px; 
-    
-    /* Loop do generowania przesunięć (staggered sticky top) */
-    @for $i from 1 through 8 {
-      &:nth-child(#{$i}) {
-        /* 
-           100px = margines od góry ekranu (żeby nie zasłaniać menu jeśli jest sticky, lub po prostu dla oddechu)
-           $i * 10px = kaskada, każda kolejna karta przykleja się 10px niżej, dzięki czemu widać nagłówki poprzednich
-        */
-        top: calc(80px + #{$i * 15}px); 
-        z-index: $i;
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      position: relative;
+    }
+
+    @media (max-width: 1024px) {
+      position: relative;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      
+      &.active {
+        height: auto;
+      }
+    }
+  }
+
+  &__mobile-header {
+    display: none;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba($color-text, 0.1);
+    padding: space(m) 0;
+    text-align: left;
+    font-family: $font-heading;
+    font-size: step(1);
+    color: $color-text;
+    font-weight: 700;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+
+    &::after {
+      content: '+';
+      font-weight: 400;
+      font-size: step(2);
+      color: $color-accent;
+    }
+
+    &.active {
+      color: $color-accent;
+      border-bottom-color: $color-accent;
+      
+      &::after {
+        content: '-';
       }
     }
 
     @media (max-width: 1024px) {
-      grid-template-columns: 1fr;
+      display: flex;
+    }
+  }
+
+  &__pane-inner {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: space(xl);
+    background-color: rgba(30, 40, 52, 0.5);
+    border: 1px solid rgba($color-text, 0.1);
+    border-radius: 8px;
+    padding: space(xl);
+
+    @media (max-width: 1024px) {
+      display: flex;
+      flex-direction: column;
       gap: space(l);
-      padding: space(l);
-      
-      /* Disable Sticky on Mobile for better UX with long content */
-      position: relative;
-      top: auto !important; /* Override loop styles */
-      min-height: auto;
-      box-shadow: none;
-      border-bottom: 1px solid rgba($color-text, 0.1);
-      margin-bottom: space(l);
-      
-      /* Remove loop styles effect */
-      @for $i from 1 through 8 {
-        &:nth-child(#{$i}) {
-          top: auto;
-          z-index: 1;
-        }
-      }
+      background-color: transparent;
+      border: none;
+      padding: space(m) 0 space(xl) 0;
     }
   }
 
   &__img-wrapper {
     width: 100%;
-    height: 300px;
+    height: 100%;
+    min-height: 300px;
     border-radius: 4px;
     overflow: hidden;
     
     @media (max-width: 1024px) {
       height: 200px;
-      order: -1; /* Obrazek na górze na mobile */
+      min-height: 200px;
     }
   }
 
@@ -1052,28 +1163,12 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
   }
 
-  &__content {
+  &__info {
     display: flex;
     flex-direction: column;
-    gap: space(l);
-  }
-
-  &__top {
-    display: flex;
-    align-items: baseline;
     gap: space(m);
-    border-bottom: 1px solid rgba($color-text, 0.1);
-    padding-bottom: space(m);
-  }
-
-  &__number {
-    font-family: $font-body;
-    font-size: step(1);
-    color: $color-accent;
-    font-weight: 600;
   }
 
   &__name {
@@ -1081,18 +1176,10 @@ body {
     font-size: step(2);
     font-weight: 700;
     color: $color-text;
-  }
-
-  &__details {
-    display: flex;
-    flex-direction: column;
-    gap: space(l);
-  }
-
-  &__desc-row {
-    display: flex;
-    flex-direction: column;
-    gap: space(m);
+    
+    @media (max-width: 1024px) {
+      display: none;
+    }
   }
 
   &__desc {
@@ -1100,18 +1187,21 @@ body {
     font-size: step(0);
     line-height: 1.6;
     color: $color-text-muted;
-    max-width: 65ch;
   }
 
   &__btn {
     @include btn-outline;
     align-self: flex-start;
+    margin-top: space(s);
   }
 
   &__links {
-    display: flex;
-    gap: space(3xl);
-    margin-top: space(m);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: space(xl);
+    margin-top: space(l);
+    padding-top: space(l);
+    border-top: 1px solid rgba($color-text, 0.1);
     
     ul {
       list-style: none;
@@ -1120,9 +1210,7 @@ body {
         font-family: $font-body;
         font-size: step(-1);
         color: $color-text-muted;
-        margin-bottom: space(s);
-        cursor: pointer;
-        transition: color 0.2s ease;
+        margin-bottom: space(xs);
         position: relative;
         padding-left: space(m);
         
@@ -1131,26 +1219,18 @@ body {
           position: absolute;
           left: 0;
           color: $color-accent;
-          opacity: 0.5;
-          transition: opacity 0.2s ease;
-        }
-        
-        &:hover {
-          color: $color-text;
-          
-          &::before {
-            opacity: 1;
-          }
+          opacity: 0.7;
         }
       }
     }
-    
+
     @media (max-width: 600px) {
-      flex-direction: column;
+      grid-template-columns: 1fr;
       gap: space(m);
     }
   }
 }
+
 
 // Success Stories Section (New)
 .success-stories {
