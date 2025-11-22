@@ -658,23 +658,27 @@ body {
   &__features {
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
-    gap: space(l);
+    flex-wrap: nowrap; /* Force single line */
+    gap: space(m); /* Reduced gap from space(l) */
     margin-top: space(s);
-
+    overflow-x: auto; /* Allow scroll on very small screens if needed, or just shrink */
+    
     @media (max-width: 600px) {
-      flex-direction: column;
-      gap: space(m);
+      flex-wrap: wrap; /* Allow wrap on mobile */
+      flex-direction: row; /* Keep row direction on mobile too if possible, or wrap */
+      gap: space(s);
+      justify-content: flex-start;
     }
   }
 
   &__feature {
     display: flex;
     align-items: center;
-    gap: space(s);
+    gap: space(xs); /* Reduced gap between icon and text */
     font-family: $font-body;
-    font-size: step(-1);
+    font-size: step(-2); /* Slightly smaller text to fit */
     font-weight: 500;
+    white-space: nowrap; /* Prevent text wrapping within item */
   }
 
   &__check-icon {
