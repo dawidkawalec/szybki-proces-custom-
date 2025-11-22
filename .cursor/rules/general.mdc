@@ -1,0 +1,31 @@
+---
+alwaysApply: true
+---
+
+# Zawsze sprawdzaj scss, zmienne i elementy w szablonach!
+ **korzystaj maksymalnie** z tych samych zmiennych oraz klas przyciskow elementow oraz wszystkich powtarzajacych sie elementow. staraj sie jak najmniej tworzyc nowe a jak najwiecej korzystac z gotowego
+
+ # Project Rules: Utopia Fluid System Implementation
+
+## Context
+Pracujemy nad customowym motywem WordPress/Web Dev. Projekt wykorzystuje **Utopia.fyi** do zarządzania responsywnością bez zbędnych Media Queries.
+
+## Strict CSS Guidelines (The "Law")
+1. **NO Hardcoded Values:** Absolutny zakaz używania `px`, `rem`, `em` dla:
+   - `font-size` (używaj wyłącznie `var(--step-...)`)
+   - `margin`, `padding`, `gap` (używaj wyłącznie `var(--space-...)`)
+   - `width` / `height` kontenerów (chyba że to specyficzny komponent UI jak ikona).
+2. **Fluidity over Breakpoints:** Unikaj min-width/max-width media queries, jeśli problem da się rozwiązać zmienną typu fluid pair (np. `var(--space-s-l)`).
+3. **Naming Convention:**
+   - Typography: `--step--2` do `--step-5` (lub zgodnie z definicją).
+   - Spacing: `--space-3xs` do `--space-3xl`.
+   - Pairs: `--space-s-m` (one-up pairs) lub customowe.
+
+## Workflow
+- Przy tworzeniu nowego komponentu: najpierw dobierz zmienną semantycznie (np. "to jest nagłówek H2, więc `--step-3`"), a nie wizualnie.
+- Jeśli stary kod zawiera hardcoded values, refaktoryzuj go na zmienne.
+- W przypadku wątpliwości, która zmienna pasuje – zapytaj lub podaj 2 opcje (konserwatywną i luźniejszą).
+
+## Output Format
+Generując kod CSS/SCSS, zawsze dodawaj komentarz przy zmiennej, co ona reprezentuje w tym kontekście, np.:
+`gap: var(--space-m); /* Fluid gap approx 24px->32px */`
