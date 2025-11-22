@@ -138,18 +138,35 @@ if (tabsContainer) {
       // Close all others (optional, accordion style)
       mobileAccordions.forEach(h => {
         h.classList.remove('active');
-        h.nextElementSibling.style.maxHeight = null;
+        const pane = h.nextElementSibling;
+        pane.style.maxHeight = null;
+        pane.classList.remove('active'); // Also remove class active for consistency
       });
 
       if (!isActive) {
         header.classList.add('active');
+        content.classList.add('active'); // Add class active for styling hooks if needed
         content.style.maxHeight = content.scrollHeight + "px";
       }
     });
   });
   
-  // Helper to trigger first tab on load if none active
+  // Helper to trigger first tab on load if none active (ONLY FOR DESKTOP INITIAL STATE)
+  // On mobile, we might want all closed initially or first open. 
+  // If we click the button, it adds '.active' to pane. 
+  // CSS for desktop handles '.active' -> visibility visible.
+  // CSS for mobile handles '.active' -> no height change (now removed), JS sets maxHeight.
+  // So triggering this click is fine for desktop state. 
+  // For mobile, if we want the first one open, we need to set maxHeight manually or let user open it.
+  // Let's leave it as is, but maybe check viewport width? 
+  // Actually, triggering the click adds '.active' class. 
+  // On mobile, CSS '.active' no longer forces height: auto. So it will remain closed (max-height: 0) unless JS sets style.maxHeight.
+  // This is GOOD. It means on mobile it starts closed, which is cleaner than a broken open state.
+  // If user wants first open on mobile, we'd need explicit JS for that. Assuming closed is fine/better.
+  
   if (tabButtons.length > 0 && !tabsContainer.querySelector('.practice-areas__tab-btn.active')) {
+     // Only trigger if we are likely on desktop? Or just let it set the class state.
+     // Setting class state is harmless now that mobile CSS doesn't auto-expand on class alone.
      tabButtons[0].click();
   }
 }
