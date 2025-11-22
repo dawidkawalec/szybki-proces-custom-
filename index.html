@@ -292,7 +292,7 @@
       </div>
     </section>
 
-    <!-- Practice Areas Section -->
+    <!-- Practice Areas Section (Tabs) -->
     <section class="practice-areas">
       <div class="practice-areas__container">
         <!-- Header -->
@@ -301,286 +301,273 @@
           <p class="practice-areas__subtitle">Ponad 12 lat doświadczenia w sądach całego kraju.<br>Znajdź swoje miasto i sprawdź ofertę.</p>
         </div>
 
-        <!-- List -->
-        <div class="practice-areas__list">
-          <!-- Item 01 (Active by default) -->
-          <div class="practice-areas__item" data-id="1">
-             <div class="practice-areas__img-wrapper">
-               <img src="https://placehold.co/300x400" alt="Prawo cywilne" class="practice-areas__img" />
-             </div>
-             <div class="practice-areas__content">
-               <div class="practice-areas__top">
-                 <span class="practice-areas__number">01.</span>
-                 <h3 class="practice-areas__name">Prawo cywilne</h3>
-               </div>
-               <div class="practice-areas__details">
-                 <div class="practice-areas__desc-row">
-                    <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
-                    <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
-                 </div>
-                 <div class="practice-areas__links">
-                   <ul>
-                     <li>Sprawy umowne</li>
-                     <li>Sprawy o zapłatę</li>
-                     <li>Sprawy odszkodowawcze</li>
-                     <li>Sprawy mieszkaniowe</li>
-                     <li>Sprawy między sąsiadami</li>
-                   </ul>
-                   <ul>
-                     <li>Sprawy konsumenckie</li>
-                     <li>Sprawy ubezpieczeniowe</li>
-                     <li>Sprawy autorskie/IP</li>
-                     <li>Sprawy z operatorami</li>
-                     <li>Sprawy deliktowe</li>
-                   </ul>
-                 </div>
-               </div>
-             </div>
+        <!-- Tabs Layout -->
+        <div class="practice-areas__tabs-layout">
+          <!-- Tabs Navigation (Left Column) -->
+          <div class="practice-areas__sidebar">
+            <div class="practice-areas__nav">
+              <button class="practice-areas__tab-btn active" data-tab="1">Prawo cywilne</button>
+              <button class="practice-areas__tab-btn" data-tab="2">Prawo rodzinne</button>
+              <button class="practice-areas__tab-btn" data-tab="3">Prawo gospodarcze</button>
+              <button class="practice-areas__tab-btn" data-tab="4">Prawo administracyjne</button>
+              <button class="practice-areas__tab-btn" data-tab="5">Prawo karne</button>
+              <button class="practice-areas__tab-btn" data-tab="6">Prawo bankowe</button>
+              <button class="practice-areas__tab-btn" data-tab="7">Restrukturyzacja</button>
+              <button class="practice-areas__tab-btn" data-tab="8">Nieruchomości</button>
+            </div>
           </div>
 
-          <!-- Item 02 -->
-          <div class="practice-areas__item" data-id="2">
-             <div class="practice-areas__img-wrapper">
-               <img src="https://placehold.co/300x400" alt="Prawo rodzinne" class="practice-areas__img" />
-             </div>
-             <div class="practice-areas__content">
-               <div class="practice-areas__top">
-                 <span class="practice-areas__number">02.</span>
-                 <h3 class="practice-areas__name">Prawo rodzinne</h3>
-               </div>
-               <div class="practice-areas__details">
-                 <div class="practice-areas__desc-row">
-                    <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
-                    <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
-                 </div>
-                 <div class="practice-areas__links">
-                   <ul>
-                     <li>Sprawy umowne</li>
-                     <li>Sprawy o zapłatę</li>
-                     <li>Sprawy odszkodowawcze</li>
-                     <li>Sprawy mieszkaniowe</li>
-                     <li>Sprawy między sąsiadami</li>
-                   </ul>
-                   <ul>
-                     <li>Sprawy konsumenckie</li>
-                     <li>Sprawy ubezpieczeniowe</li>
-                     <li>Sprawy autorskie/IP</li>
-                     <li>Sprawy z operatorami</li>
-                     <li>Sprawy deliktowe</li>
-                   </ul>
-                 </div>
-               </div>
-             </div>
-          </div>
+          <!-- Tabs Content (Right Column) -->
+          <div class="practice-areas__content">
+            
+            <!-- Item 1: Cywilne -->
+            <button class="practice-areas__mobile-header active">Prawo cywilne</button>
+            <div class="practice-areas__content-pane active" id="area-1">
+              <div class="practice-areas__pane-inner">
+                <div class="practice-areas__img-wrapper">
+                  <img src="https://placehold.co/300x400" alt="Prawo cywilne" class="practice-areas__img" />
+                </div>
+                <div class="practice-areas__info">
+                  <h3 class="practice-areas__name">Prawo cywilne</h3>
+                  <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
+                  <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
+                  <div class="practice-areas__links">
+                    <ul>
+                      <li>Sprawy umowne</li>
+                      <li>Sprawy o zapłatę</li>
+                      <li>Sprawy odszkodowawcze</li>
+                      <li>Sprawy mieszkaniowe</li>
+                      <li>Sprawy między sąsiadami</li>
+                    </ul>
+                    <ul>
+                      <li>Sprawy konsumenckie</li>
+                      <li>Sprawy ubezpieczeniowe</li>
+                      <li>Sprawy autorskie/IP</li>
+                      <li>Sprawy z operatorami</li>
+                      <li>Sprawy deliktowe</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <!-- Item 03 -->
-          <div class="practice-areas__item" data-id="3">
-             <div class="practice-areas__img-wrapper">
-               <img src="https://placehold.co/300x400" alt="Prawo gospodarcze" class="practice-areas__img" />
-             </div>
-             <div class="practice-areas__content">
-               <div class="practice-areas__top">
-                 <span class="practice-areas__number">03.</span>
-                 <h3 class="practice-areas__name">Prawo gospodarcze</h3>
-               </div>
-               <div class="practice-areas__details">
-                 <div class="practice-areas__desc-row">
-                    <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
-                    <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
-                 </div>
-                 <div class="practice-areas__links">
-                   <ul>
-                     <li>Sprawy umowne</li>
-                     <li>Sprawy o zapłatę</li>
-                     <li>Sprawy odszkodowawcze</li>
-                     <li>Sprawy mieszkaniowe</li>
-                     <li>Sprawy między sąsiadami</li>
-                   </ul>
-                   <ul>
-                     <li>Sprawy konsumenckie</li>
-                     <li>Sprawy ubezpieczeniowe</li>
-                     <li>Sprawy autorskie/IP</li>
-                     <li>Sprawy z operatorami</li>
-                     <li>Sprawy deliktowe</li>
-                   </ul>
-                 </div>
-               </div>
-             </div>
-          </div>
+            <!-- Item 2: Rodzinne -->
+            <button class="practice-areas__mobile-header">Prawo rodzinne</button>
+            <div class="practice-areas__content-pane" id="area-2">
+              <div class="practice-areas__pane-inner">
+                <div class="practice-areas__img-wrapper">
+                  <img src="https://placehold.co/300x400" alt="Prawo rodzinne" class="practice-areas__img" />
+                </div>
+                <div class="practice-areas__info">
+                  <h3 class="practice-areas__name">Prawo rodzinne</h3>
+                  <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
+                  <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
+                  <div class="practice-areas__links">
+                    <ul>
+                      <li>Rozwody</li>
+                      <li>Alimenty</li>
+                      <li>Podział majątku</li>
+                      <li>Władza rodzicielska</li>
+                      <li>Kontakty z dzieckiem</li>
+                    </ul>
+                    <ul>
+                      <li>Ustalenie ojcostwa</li>
+                      <li>Adopcje</li>
+                      <li>Kurator rodzinny</li>
+                      <li>Uprowadzenia</li>
+                      <li>Przemoc w rodzinie</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <!-- Item 04 -->
-          <div class="practice-areas__item" data-id="4">
-             <div class="practice-areas__img-wrapper">
-               <img src="https://placehold.co/300x400" alt="Prawo administracyjne" class="practice-areas__img" />
-             </div>
-             <div class="practice-areas__content">
-               <div class="practice-areas__top">
-                 <span class="practice-areas__number">04.</span>
-                 <h3 class="practice-areas__name">Prawo administracyjne</h3>
-               </div>
-               <div class="practice-areas__details">
-                 <div class="practice-areas__desc-row">
-                    <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
-                    <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
-                 </div>
-                 <div class="practice-areas__links">
-                   <ul>
-                     <li>Sprawy umowne</li>
-                     <li>Sprawy o zapłatę</li>
-                     <li>Sprawy odszkodowawcze</li>
-                     <li>Sprawy mieszkaniowe</li>
-                     <li>Sprawy między sąsiadami</li>
-                   </ul>
-                   <ul>
-                     <li>Sprawy konsumenckie</li>
-                     <li>Sprawy ubezpieczeniowe</li>
-                     <li>Sprawy autorskie/IP</li>
-                     <li>Sprawy z operatorami</li>
-                     <li>Sprawy deliktowe</li>
-                   </ul>
-                 </div>
-               </div>
-             </div>
-          </div>
+            <!-- Item 3: Gospodarcze -->
+            <button class="practice-areas__mobile-header">Prawo gospodarcze</button>
+            <div class="practice-areas__content-pane" id="area-3">
+              <div class="practice-areas__pane-inner">
+                <div class="practice-areas__img-wrapper">
+                  <img src="https://placehold.co/300x400" alt="Prawo gospodarcze" class="practice-areas__img" />
+                </div>
+                <div class="practice-areas__info">
+                  <h3 class="practice-areas__name">Prawo gospodarcze</h3>
+                  <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
+                  <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
+                  <div class="practice-areas__links">
+                    <ul>
+                      <li>Spory spółek</li>
+                      <li>Kary umowne</li>
+                      <li>Nieuczciwa konkurencja</li>
+                      <li>Windykacja B2B</li>
+                      <li>Umowy handlowe</li>
+                    </ul>
+                    <ul>
+                      <li>Odpowiedzialność zarządu</li>
+                      <li>Ład korporacyjny</li>
+                      <li>Fuzje i przejęcia</li>
+                      <li>Prawo przewozowe</li>
+                      <li>Spory budowlane</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <!-- Item 05 -->
-          <div class="practice-areas__item" data-id="5">
-             <div class="practice-areas__img-wrapper">
-               <img src="https://placehold.co/300x400" alt="Prawo karne" class="practice-areas__img" />
-             </div>
-             <div class="practice-areas__content">
-               <div class="practice-areas__top">
-                 <span class="practice-areas__number">05.</span>
-                 <h3 class="practice-areas__name">Prawo karne</h3>
-               </div>
-               <div class="practice-areas__details">
-                 <div class="practice-areas__desc-row">
-                    <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
-                    <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
-                 </div>
-                 <div class="practice-areas__links">
-                   <ul>
-                     <li>Sprawy umowne</li>
-                     <li>Sprawy o zapłatę</li>
-                     <li>Sprawy odszkodowawcze</li>
-                     <li>Sprawy mieszkaniowe</li>
-                     <li>Sprawy między sąsiadami</li>
-                   </ul>
-                   <ul>
-                     <li>Sprawy konsumenckie</li>
-                     <li>Sprawy ubezpieczeniowe</li>
-                     <li>Sprawy autorskie/IP</li>
-                     <li>Sprawy z operatorami</li>
-                     <li>Sprawy deliktowe</li>
-                   </ul>
-                 </div>
-               </div>
-             </div>
-          </div>
+            <!-- Item 4: Administracyjne -->
+            <button class="practice-areas__mobile-header">Prawo administracyjne</button>
+            <div class="practice-areas__content-pane" id="area-4">
+              <div class="practice-areas__pane-inner">
+                <div class="practice-areas__img-wrapper">
+                  <img src="https://placehold.co/300x400" alt="Prawo administracyjne" class="practice-areas__img" />
+                </div>
+                <div class="practice-areas__info">
+                  <h3 class="practice-areas__name">Prawo administracyjne</h3>
+                  <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
+                  <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
+                  <div class="practice-areas__links">
+                    <ul>
+                      <li>Pozwolenia na budowę</li>
+                      <li>Decyzje środowiskowe</li>
+                      <li>Planowanie przestrzenne</li>
+                      <li>Kary administracyjne</li>
+                      <li>Skargi do WSA/NSA</li>
+                    </ul>
+                    <ul>
+                      <li>Dostęp do info publ.</li>
+                      <li>Reprywatyzacja</li>
+                      <li>Wywłaszczenia</li>
+                      <li>Podatki lokalne</li>
+                      <li>Koncesje i licencje</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <!-- Item 06 -->
-          <div class="practice-areas__item" data-id="6">
-             <div class="practice-areas__img-wrapper">
-               <img src="https://placehold.co/300x400" alt="Prawo bankowe i finansowe" class="practice-areas__img" />
-             </div>
-             <div class="practice-areas__content">
-               <div class="practice-areas__top">
-                 <span class="practice-areas__number">06.</span>
-                 <h3 class="practice-areas__name">Prawo bankowe i finansowe</h3>
-               </div>
-               <div class="practice-areas__details">
-                 <div class="practice-areas__desc-row">
-                    <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
-                    <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
-                 </div>
-                 <div class="practice-areas__links">
-                   <ul>
-                     <li>Sprawy umowne</li>
-                     <li>Sprawy o zapłatę</li>
-                     <li>Sprawy odszkodowawcze</li>
-                     <li>Sprawy mieszkaniowe</li>
-                     <li>Sprawy między sąsiadami</li>
-                   </ul>
-                   <ul>
-                     <li>Sprawy konsumenckie</li>
-                     <li>Sprawy ubezpieczeniowe</li>
-                     <li>Sprawy autorskie/IP</li>
-                     <li>Sprawy z operatorami</li>
-                     <li>Sprawy deliktowe</li>
-                   </ul>
-                 </div>
-               </div>
-             </div>
-          </div>
+            <!-- Item 5: Karne -->
+            <button class="practice-areas__mobile-header">Prawo karne</button>
+            <div class="practice-areas__content-pane" id="area-5">
+              <div class="practice-areas__pane-inner">
+                <div class="practice-areas__img-wrapper">
+                  <img src="https://placehold.co/300x400" alt="Prawo karne" class="practice-areas__img" />
+                </div>
+                <div class="practice-areas__info">
+                  <h3 class="practice-areas__name">Prawo karne</h3>
+                  <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
+                  <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
+                  <div class="practice-areas__links">
+                    <ul>
+                      <li>Obrona oskarżonego</li>
+                      <li>Reprezentacja ofiar</li>
+                      <li>Przestępstwa gosp.</li>
+                      <li>Wypadki drogowe</li>
+                      <li>Błędy medyczne</li>
+                    </ul>
+                    <ul>
+                      <li>Dozór elektroniczny</li>
+                      <li>Warunkowe zwolnienie</li>
+                      <li>Odroczenie kary</li>
+                      <li>Zatarcie skazania</li>
+                      <li>List żelazny</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <!-- Item 07 -->
-          <div class="practice-areas__item" data-id="7">
-             <div class="practice-areas__img-wrapper">
-               <img src="https://placehold.co/300x400" alt="Restrukturyzacja i upadłość" class="practice-areas__img" />
-             </div>
-             <div class="practice-areas__content">
-               <div class="practice-areas__top">
-                 <span class="practice-areas__number">07.</span>
-                 <h3 class="practice-areas__name">Restrukturyzacja i upadłość</h3>
-               </div>
-               <div class="practice-areas__details">
-                 <div class="practice-areas__desc-row">
-                    <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
-                    <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
-                 </div>
-                 <div class="practice-areas__links">
-                   <ul>
-                     <li>Sprawy umowne</li>
-                     <li>Sprawy o zapłatę</li>
-                     <li>Sprawy odszkodowawcze</li>
-                     <li>Sprawy mieszkaniowe</li>
-                     <li>Sprawy między sąsiadami</li>
-                   </ul>
-                   <ul>
-                     <li>Sprawy konsumenckie</li>
-                     <li>Sprawy ubezpieczeniowe</li>
-                     <li>Sprawy autorskie/IP</li>
-                     <li>Sprawy z operatorami</li>
-                     <li>Sprawy deliktowe</li>
-                   </ul>
-                 </div>
-               </div>
-             </div>
-          </div>
+            <!-- Item 6: Bankowe -->
+            <button class="practice-areas__mobile-header">Prawo bankowe</button>
+            <div class="practice-areas__content-pane" id="area-6">
+              <div class="practice-areas__pane-inner">
+                <div class="practice-areas__img-wrapper">
+                  <img src="https://placehold.co/300x400" alt="Prawo bankowe" class="practice-areas__img" />
+                </div>
+                <div class="practice-areas__info">
+                  <h3 class="practice-areas__name">Prawo bankowe i finansowe</h3>
+                  <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
+                  <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
+                  <div class="practice-areas__links">
+                    <ul>
+                      <li>Kredyty frankowe</li>
+                      <li>Sankcja kredytu darm.</li>
+                      <li>Spory z bankami</li>
+                      <li>Polisolokaty</li>
+                      <li>Obligacje korporacyjne</li>
+                    </ul>
+                    <ul>
+                      <li>Upadłość konsumencka</li>
+                      <li>Restrukturyzacja zadłuż.</li>
+                      <li>Negocjacje z wierzyc.</li>
+                      <li>E-sąd (EpU)</li>
+                      <li>Skargi na komornika</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <!-- Item 08 -->
-          <div class="practice-areas__item" data-id="8">
-             <div class="practice-areas__img-wrapper">
-               <img src="https://placehold.co/300x400" alt="Nieruchomości i budownictwo" class="practice-areas__img" />
-             </div>
-             <div class="practice-areas__content">
-               <div class="practice-areas__top">
-                 <span class="practice-areas__number">08.</span>
-                 <h3 class="practice-areas__name">Nieruchomości i budownictwo</h3>
-               </div>
-               <div class="practice-areas__details">
-                 <div class="practice-areas__desc-row">
-                    <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
-                    <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
-                 </div>
-                 <div class="practice-areas__links">
-                   <ul>
-                     <li>Sprawy umowne</li>
-                     <li>Sprawy o zapłatę</li>
-                     <li>Sprawy odszkodowawcze</li>
-                     <li>Sprawy mieszkaniowe</li>
-                     <li>Sprawy między sąsiadami</li>
-                   </ul>
-                   <ul>
-                     <li>Sprawy konsumenckie</li>
-                     <li>Sprawy ubezpieczeniowe</li>
-                     <li>Sprawy autorskie/IP</li>
-                     <li>Sprawy z operatorami</li>
-                     <li>Sprawy deliktowe</li>
-                   </ul>
-                 </div>
-               </div>
-             </div>
+            <!-- Item 7: Restrukturyzacja -->
+            <button class="practice-areas__mobile-header">Restrukturyzacja</button>
+            <div class="practice-areas__content-pane" id="area-7">
+              <div class="practice-areas__pane-inner">
+                <div class="practice-areas__img-wrapper">
+                  <img src="https://placehold.co/300x400" alt="Restrukturyzacja" class="practice-areas__img" />
+                </div>
+                <div class="practice-areas__info">
+                  <h3 class="practice-areas__name">Restrukturyzacja i upadłość</h3>
+                  <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
+                  <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
+                  <div class="practice-areas__links">
+                    <ul>
+                      <li>Upadłość firmy</li>
+                      <li>Układ z wierzycielami</li>
+                      <li>Post. sanacyjne</li>
+                      <li>Ochrona przed egzek.</li>
+                      <li>Pre-pack</li>
+                    </ul>
+                    <ul>
+                      <li>Odpowiedzialność zarz.</li>
+                      <li>Zakaz prowadzenia dział.</li>
+                      <li>Skarga pauliańska</li>
+                      <li>Zgłoszenie wierzytel.</li>
+                      <li>Sprzedaż majątku</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 8: Nieruchomości -->
+            <button class="practice-areas__mobile-header">Nieruchomości</button>
+            <div class="practice-areas__content-pane" id="area-8">
+              <div class="practice-areas__pane-inner">
+                <div class="practice-areas__img-wrapper">
+                  <img src="https://placehold.co/300x400" alt="Nieruchomości" class="practice-areas__img" />
+                </div>
+                <div class="practice-areas__info">
+                  <h3 class="practice-areas__name">Nieruchomości i budownictwo</h3>
+                  <p class="practice-areas__desc">Najszersza dziedzina prawa regulująca stosunki między osobami prywatnymi, firmami i instytucjami. Obejmuje spory z umów, szkody, naruszenia własności oraz konflikty majątkowe. Stanowi ponad 60% wszystkich spraw sądowych w Polsce. Średni czas rozpatrywania: 18-24 miesiące przy normie 12 miesięcy.</p>
+                  <a href="#" class="practice-areas__btn">Sprawdź szczegóły</a>
+                  <div class="practice-areas__links">
+                    <ul>
+                      <li>Spory deweloperskie</li>
+                      <li>Zasiedzenie</li>
+                      <li>Zniesienie współwł.</li>
+                      <li>Służebności</li>
+                      <li>Najem i dzierżawa</li>
+                    </ul>
+                    <ul>
+                      <li>Audyt prawny (Due Dil.)</li>
+                      <li>Umowy budowlane</li>
+                      <li>Wady budynku</li>
+                      <li>Wspólnoty mieszkan.</li>
+                      <li>Księgi wieczyste</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

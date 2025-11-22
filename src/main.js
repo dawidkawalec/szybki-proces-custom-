@@ -30,23 +30,20 @@ faqHeaders.forEach(header => {
 });
 
 // Initialize Swiper for Reviews
-// Sprawdzamy czy Swiper jest załadowany (z CDN)
 if (typeof Swiper !== 'undefined') {
   new Swiper('.reviews-swiper', {
-    slidesPerView: 'auto', // Slajdy mają width z CSS (400px)
-    spaceBetween: 32, // Odstęp (space-l/xl)
-    centeredSlides: false, // Zaczynamy od lewej
-    loop: true, // Pętla
+    slidesPerView: 'auto',
+    spaceBetween: 32,
+    centeredSlides: false,
+    loop: true,
     navigation: {
       nextEl: '.reviews__btn--next',
       prevEl: '.reviews__btn--prev',
     },
     breakpoints: {
-      // Mobile
       320: {
         spaceBetween: 16,
       },
-      // Desktop
       1024: {
         spaceBetween: 32,
       },
@@ -69,12 +66,12 @@ if (hamburger && mobileMenu) {
       mobileMenu.classList.remove('is-open');
       hamburger.classList.remove('is-active');
       hamburger.setAttribute('aria-expanded', 'false');
-      body.style.overflow = ''; // Restore scrolling
+      body.style.overflow = ''; 
     } else {
       mobileMenu.classList.add('is-open');
       hamburger.classList.add('is-active');
       hamburger.setAttribute('aria-expanded', 'true');
-      body.style.overflow = 'hidden'; // Lock scrolling
+      body.style.overflow = 'hidden'; 
     }
   });
 }
@@ -87,17 +84,14 @@ mobileSubmenuBtns.forEach(btn => {
     const parent = btn.parentElement;
     const submenu = parent.querySelector('.mobile-menu__submenu');
     
-    // Toggle active class for arrow rotation
     parent.classList.toggle('is-active');
     
-    // Toggle submenu visibility
     if (submenu) {
       submenu.classList.toggle('is-open');
     }
   });
 });
 
-// Close mobile menu when clicking a link (optional, but good UX)
 const mobileLinks = document.querySelectorAll('.mobile-menu__link, .mobile-menu__sublink, .mobile-menu__cta');
 mobileLinks.forEach(link => {
   link.addEventListener('click', () => {
@@ -109,3 +103,53 @@ mobileLinks.forEach(link => {
     }
   });
 });
+
+// Practice Areas Tabs Logic
+const tabsContainer = document.querySelector('.practice-areas');
+if (tabsContainer) {
+  const tabButtons = tabsContainer.querySelectorAll('.practice-areas__tab-btn');
+  const tabContents = tabsContainer.querySelectorAll('.practice-areas__content-pane');
+  const mobileAccordions = tabsContainer.querySelectorAll('.practice-areas__mobile-header');
+
+  // Desktop Tabs Functionality
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.tab;
+
+      // Remove active class from all buttons and contents
+      tabButtons.forEach(b => b.classList.remove('active'));
+      tabContents.forEach(c => c.classList.remove('active'));
+
+      // Add active class to clicked button and target content
+      btn.classList.add('active');
+      const targetContent = document.getElementById(`area-${targetId}`);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+    });
+  });
+
+  // Mobile Accordion Functionality
+  mobileAccordions.forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const isActive = header.classList.contains('active');
+
+      // Close all others (optional, accordion style)
+      mobileAccordions.forEach(h => {
+        h.classList.remove('active');
+        h.nextElementSibling.style.maxHeight = null;
+      });
+
+      if (!isActive) {
+        header.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  });
+  
+  // Helper to trigger first tab on load if none active
+  if (tabButtons.length > 0 && !tabsContainer.querySelector('.practice-areas__tab-btn.active')) {
+     tabButtons[0].click();
+  }
+}
