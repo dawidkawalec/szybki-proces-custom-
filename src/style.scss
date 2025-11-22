@@ -434,7 +434,7 @@ body {
   background-color: $color-bg-light;
   color: $color-text;
   padding: 0; /* Pełna wysokość bez paddingu góra/dół dla split layoutu */
-  border-bottom: 1px solid rgba($color-text, 0.5);
+  border-bottom: 1px solid rgba($color-text, 0.3);
   overflow: hidden;
 
   &__container {
@@ -830,7 +830,7 @@ body {
   background-color: $color-bg-light;
   color: $color-text;
   padding: space(3xl) 0;
-  border-bottom: 1px solid rgba($color-text, 0.5);
+  border-bottom: 1px solid rgba($color-text, 0.3);
 
   &__container {
     max-width: $container-max-width;
@@ -944,7 +944,7 @@ body {
   background-color: $color-bg-dark;
   color: $color-text;
   padding: space(3xl) 0;
-  border-bottom: 1px solid rgba($color-text, 0.5);
+  border-bottom: 1px solid rgba($color-text, 0.3);
 
   &__container {
     max-width: $container-max-width;
@@ -1285,7 +1285,7 @@ body {
   background-color: $color-bg-light;
   color: $color-text;
   padding: space(3xl) 0;
-  border-bottom: 1px solid rgba($color-text, 0.5);
+  border-bottom: 1px solid rgba($color-text, 0.3);
   overflow-x: hidden; /* Prevent horizontal scroll from breakout */
 
   &__container {
@@ -1460,7 +1460,7 @@ body {
   background-color: $color-bg-dark;
   color: $color-text;
   padding: space(3xl) 0;
-  border-bottom: 1px solid rgba($color-text, 0.5);
+  border-bottom: 1px solid rgba($color-text, 0.3);
 
   &__container {
     max-width: $container-max-width;
@@ -1550,7 +1550,7 @@ body {
   background-color: $color-bg-light;
   color: $color-text;
   padding: space(3xl) 0;
-  border-bottom: 1px solid rgba($color-text, 0.5);
+  border-bottom: 1px solid rgba($color-text, 0.3);
   overflow-x: hidden; // Zapobiega poziomemu scrollowi strony przez wystający slider
 
   &__container {
@@ -1741,7 +1741,7 @@ body {
   background-color: $color-bg-dark;
   color: $color-text;
   padding: space(3xl) 0;
-  border-bottom: 1px solid rgba($color-text, 0.5);
+  border-bottom: 1px solid rgba($color-text, 0.3);
 
   &__container {
     max-width: $container-max-width;
@@ -1923,7 +1923,7 @@ body {
   background-color: $color-bg-dark; // Nowe ciemne tło
   color: $color-text;
   padding: space(3xl) 0;
-  border-bottom: 1px solid rgba($color-text, 0.5);
+  border-bottom: 1px solid rgba($color-text, 0.3);
   
   &__container {
     max-width: $container-max-width;
@@ -2083,7 +2083,7 @@ body {
   background-color: $color-bg-dark; // Zmiana tła na nowe
   color: $color-text;
   padding: space(3xl) 0;
-  border-bottom: 1px solid rgba($color-text, 0.5);
+  border-bottom: 1px solid rgba($color-text, 0.3);
 
   &__container {
     max-width: $container-max-width;
@@ -2186,7 +2186,7 @@ body {
   background-color: $color-bg-light;
   color: $color-text;
   padding: space(3xl) 0;
-  border-bottom: 1px solid rgba($color-text, 0.5);
+  border-bottom: 1px solid rgba($color-text, 0.3);
   // Usunąłem border-top, bo teraz jest sekcja nad nim
 
   &__container {
@@ -2583,7 +2583,7 @@ body {
 .cta {
   position: relative;
   background-color: $color-bg-dark;
-  border-bottom: 1px solid rgba($color-text, 0.5);
+  border-bottom: 1px solid rgba($color-text, 0.3);
   background-image: url('/img/CTA-bg.png');
   background-size: cover;
   background-position: center;
