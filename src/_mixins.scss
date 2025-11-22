@@ -1,0 +1,10 @@
+// Helper function for Type
+@function step($level) {
+  @return var(--step-#{$level});
+}
+
+// Helper function for Space
+@function space($size) {
+  @return var(--space-#{$size});
+}
+
