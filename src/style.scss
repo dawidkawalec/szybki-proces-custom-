@@ -597,13 +597,13 @@ body {
   color: #ffffff;
 
   /* Overlay for better text readability if needed, but image looks dark enough */
-  &::before {
+  /* &::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1;
-  }
+  } */
 
   &__container {
     max-width: $container-max-width;
@@ -750,7 +750,7 @@ body {
   padding: space(l);
   width: 100%;
   /* border-radius: 4px;  Optional based on screen, screen looks sharp */
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 40px rgba($color-accent, 0.15);
   display: flex;
   flex-direction: column;
   gap: space(l);
