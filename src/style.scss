@@ -184,6 +184,134 @@ body {
   }
 }
 
+// Process Section (New)
+.process {
+  background-color: $color-bg-dark;
+  color: $color-text;
+  padding: space(3xl) 0;
+  border-bottom: 1px solid rgba($color-text, 0.05);
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 space(l);
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: space(3xl);
+    gap: space(m);
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: step(4);
+    font-weight: 700;
+    line-height: 1.2;
+    color: $color-text;
+  }
+
+  &__subtitle {
+    font-family: $font-body;
+    font-size: step(0);
+    color: $color-text-muted;
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: space(xl);
+    margin-bottom: space(3xl);
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      gap: space(xl);
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    padding-right: space(xl);
+    border-right: 1px solid rgba($color-text, 0.2); /* Vertical separator */
+
+    &:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    @media (max-width: 1024px) {
+      border-right: none;
+      padding-right: 0;
+      border-bottom: 1px solid rgba($color-text, 0.2);
+      padding-bottom: space(l);
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: space(m);
+    margin-bottom: space(m);
+  }
+
+  &__number {
+    font-family: $font-heading;
+    font-size: step(5); /* Very large number */
+    color: $color-text;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__step-title {
+    font-family: $font-heading;
+    font-size: step(1);
+    font-weight: 700;
+    line-height: 1.2;
+    color: $color-text;
+  }
+
+  &__desc {
+    font-family: $font-body;
+    font-size: step(-1);
+    line-height: 1.6;
+    color: $color-text-muted;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__btn {
+    display: inline-block;
+    background-color: $color-accent;
+    color: #000000;
+    font-family: $font-body;
+    font-weight: 600;
+    text-decoration: none;
+    padding: space(s) space(2xl);
+    border-radius: 4px;
+    font-size: step(0);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: lighten($color-accent, 10%);
+      transform: translateY(-2px);
+    }
+  }
+}
+
 // Practice Areas Section (Sticky Stack Effect)
 .practice-areas {
   background-color: $color-bg-dark;
