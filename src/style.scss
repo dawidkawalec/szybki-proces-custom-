@@ -3,12 +3,13 @@
 
 // Variables
 $color-bg: #18202b; // Stary kolor tła (dla FAQ/Footer)
-$color-bg-dark: #141C25; // Nowy, ciemniejszy kolor (dla Blog/Mapa)
+$color-bg-dark: #141C25; // Nowy, ciemniejszy kolor (dla Blog/Mapa/Why-Us)
 $color-text: #ffffff;
 $color-text-dark: #1A1A1A; // Ciemny tekst na kartach
 $color-text-muted: #b0b0b0;
 $color-accent: #c6a87c; // Złoty kolor ze screena
 $color-card-bg: #ffffff; // Białe tło kart
+$color-danger-bg: #3E2021; // Bordowe tło sekcji ryzyka
 $font-heading: 'Merriweather', serif;
 $font-body: 'Montserrat', sans-serif;
 
@@ -28,6 +29,187 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+// Why Us Section
+.why-us {
+  background-color: $color-bg-dark;
+  color: $color-text;
+  padding: space(3xl) 0;
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 space(l);
+    
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr; // 3 kolumny: Zdjęcie, Treść, Ryzyko
+    gap: space(xl);
+    align-items: stretch; // Rozciągnij do równej wysokości
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr 1fr; // Tablet: Zdjęcie (ukryte?) + Treść, Ryzyko pod spodem?
+      // Albo: Treść + Ryzyko obok siebie, zdjęcie nad/pod?
+      // Ze screena to layout desktopowy. Na tablet zrobimy:
+      // Treść | Ryzyko
+      // (Zdjęcie ukryte lub nad)
+    }
+    
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr; // Mobile/Small Tablet: Jedna pod drugą
+      gap: space(2xl);
+    }
+  }
+
+  &__img-col {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    @media (max-width: 1024px) {
+      display: none; // Ukrywamy zdjęcie na mniejszych ekranach dla czytelności, lub można przenieść
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    border-radius: 4px;
+    // Opcjonalnie gradient overlay jak na screenie (cień z lewej)
+    mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%);
+  }
+
+  &__content-col {
+    padding: space(l) 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: step(3);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: space(m);
+    color: $color-text;
+  }
+
+  &__desc {
+    font-family: $font-body;
+    font-size: step(0);
+    color: $color-text-muted;
+    line-height: 1.6;
+    margin-bottom: space(xl);
+    max-width: 45ch;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: space(m);
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: space(m);
+  }
+
+  &__icon-wrapper {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background-color: $color-accent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__text {
+    font-family: $font-body;
+    font-size: step(-1);
+    color: $color-text;
+    line-height: 1.5;
+    padding-top: space(3xs); // Optyczne wyrównanie z ikoną
+  }
+
+  // Danger / Risk Column
+  &__risk-col {
+    background-color: $color-danger-bg;
+    padding: space(xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // border-radius: 4px; // Na screenie jest proste, bez radiusa, ale dla spójności można dodać
+  }
+
+  &__risk-title {
+    font-family: $font-heading;
+    font-size: step(2);
+    font-weight: 700;
+    margin-bottom: space(l);
+    color: $color-text;
+  }
+
+  &__risk-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: space(l);
+  }
+
+  &__risk-item {
+    display: flex;
+    align-items: flex-start;
+    gap: space(m);
+  }
+
+  &__risk-icon-wrapper {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background-color: $color-accent; // Na screenie też złote ikony
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__risk-content {
+    display: flex;
+    flex-direction: column;
+    gap: space(2xs);
+  }
+
+  &__risk-heading {
+    font-weight: 700;
+    font-size: step(-1);
+    color: $color-text;
+  }
+
+  &__risk-desc {
+    font-size: step(-2);
+    color: rgba($color-text, 0.8);
+    line-height: 1.5;
+  }
 }
 
 // Blog Section
@@ -151,7 +333,7 @@ body {
 
   &__card-title {
     font-family: $font-heading;
-    font-size: step(1);
+    font-size: step(0); // Zmieniono z step(1) na step(0)
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: space(s);
