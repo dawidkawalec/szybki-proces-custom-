@@ -43,7 +43,7 @@ body {
     padding: 0 space(l);
     
     display: grid;
-    grid-template-columns: 1fr 1.2fr 1fr; // 3 kolumny: Zdjęcie, Treść, Ryzyko
+    grid-template-columns: 1fr 0.8fr 1fr; // Zmiana: Węższa środkowa kolumna
     gap: space(xl);
     align-items: stretch; // Rozciągnij do równej wysokości
 
