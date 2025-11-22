@@ -215,7 +215,7 @@ body {
     
     display: grid;
     grid-template-columns: 1.2fr 0.8fr; /* Text column wider */
-    gap: space(l);
+    gap: space(xl);
     align-items: center;
 
     @media (max-width: 1024px) {
@@ -260,7 +260,7 @@ body {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: space(xl);
+    gap: space(l);
     margin-top: space(s);
 
     @media (max-width: 600px) {
