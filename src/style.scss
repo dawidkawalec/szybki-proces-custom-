@@ -2,8 +2,8 @@
 @use 'mixins' as *;
 
 // Variables
-$color-bg: #18202b; // Stary kolor tła (dla FAQ/Footer)
-$color-bg-dark: #141C25; // Nowy, ciemniejszy kolor (dla Blog/Mapa/Why-Us/Reviews/Stats)
+$color-bg-light: #1D2631;
+$color-bg-dark: #141C25;
 $color-text: #ffffff;
 $color-text-dark: #1A1A1A; // Ciemny tekst na kartach
 $color-text-muted: #b0b0b0;
@@ -431,7 +431,7 @@ body {
 
 // Definition Section (New)
 .definition {
-  background-color: $color-bg-dark;
+  background-color: $color-bg-light;
   color: $color-text;
   padding: 0; /* Pełna wysokość bez paddingu góra/dół dla split layoutu */
   border-bottom: 1px solid rgba($color-text, 0.05);
@@ -455,7 +455,7 @@ body {
 
   /* Left Column: Heading */
   &__left-col {
-    background-color: $color-bg-dark;
+    background-color: $color-bg-light;
     padding: space(3xl) space(2xl);
     display: flex;
     align-items: center;
@@ -486,7 +486,7 @@ body {
 
   /* Right Column: Content */
   &__right-col {
-    background-color: $color-bg-dark;
+    background-color: $color-bg-light;
     padding: space(3xl) space(2xl);
     display: flex;
     flex-direction: column;
@@ -826,7 +826,7 @@ body {
 
 // Process Section (New)
 .process {
-  background-color: $color-bg-dark;
+  background-color: $color-bg-light;
   color: $color-text;
   padding: space(3xl) 0;
   border-bottom: 1px solid rgba($color-text, 0.05);
@@ -1281,7 +1281,7 @@ body {
 
 // Success Stories Section (New)
 .success-stories {
-  background-color: $color-bg-dark;
+  background-color: $color-bg-light;
   color: $color-text;
   padding: space(3xl) 0;
   border-bottom: 1px solid rgba($color-text, 0.05);
@@ -1545,7 +1545,7 @@ body {
 
 // Reviews Section
 .reviews {
-  background-color: $color-bg-dark;
+  background-color: $color-bg-light;
   color: $color-text;
   padding: space(3xl) 0;
   overflow-x: hidden; // Zapobiega poziomemu scrollowi strony przez wystający slider
@@ -2177,7 +2177,7 @@ body {
 
 // FAQ & Contact Section
 .faq-contact {
-  background-color: $color-bg;
+  background-color: $color-bg-light;
   color: $color-text;
   padding: space(3xl) 0;
   // Usunąłem border-top, bo teraz jest sekcja nad nim
@@ -2411,7 +2411,7 @@ body {
 
 // Footer Styles
 .footer {
-  background-color: $color-bg;
+  background-color: $color-bg-dark;
   color: $color-text;
   padding-top: space(2xl);
   font-size: step(-1);
@@ -2575,7 +2575,7 @@ body {
 // CTA Section
 .cta {
   position: relative;
-  background-color: $color-bg;
+  background-color: $color-bg-dark;
   background-image: url('/img/CTA-bg.png');
   background-size: cover;
   background-position: center;
