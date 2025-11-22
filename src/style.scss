@@ -31,6 +31,354 @@ body {
   justify-content: flex-end;
 }
 
+// Header
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(#0d1219, 0.8); // Dark glass background
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s ease, padding 0.3s ease;
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: space(s) space(l);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+
+  &__logo-link {
+    display: flex;
+    align-items: center;
+    z-index: 1001;
+  }
+
+  &__logo {
+    height: 40px;
+    width: auto;
+  }
+
+  // Desktop Navigation
+  &__nav {
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: space(l);
+    list-style: none;
+  }
+
+  &__menu-item {
+    position: relative;
+    height: 80px;
+    display: flex;
+    align-items: center;
+
+    &--has-submenu {
+      &:hover {
+        .mega-menu {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+        
+        .header__arrow {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__link {
+    color: #fff;
+    text-decoration: none;
+    font-family: $font-body;
+    font-size: step(-1);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: space(2xs);
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  &__arrow {
+    width: 10px;
+    height: 6px;
+    transition: transform 0.3s ease;
+  }
+
+  &__cta {
+    background-color: $color-accent;
+    color: #000;
+    text-decoration: none;
+    padding: space(xs) space(m);
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: step(-1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: lighten($color-accent, 10%);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 1024px) {
+      display: none; // Hide on mobile/tablet, shown in mobile menu
+    }
+  }
+
+  // Hamburger Button
+  &__hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: space(xs);
+    z-index: 1001;
+
+    @media (max-width: 1024px) {
+      display: block;
+    }
+  }
+
+  &__hamburger-box {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+  }
+
+  &__hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 4px;
+    position: absolute;
+    transition: transform 0.15s ease;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 4px;
+      position: absolute;
+      transition: transform 0.15s ease;
+    }
+
+    &::before {
+      top: -8px;
+    }
+
+    &::after {
+      bottom: -8px;
+    }
+  }
+
+  // Hamburger Active State
+  &.is-active {
+    .header__hamburger-inner {
+      transform: rotate(45deg);
+      
+      &::before {
+        top: 0;
+        opacity: 0;
+      }
+      
+      &::after {
+        bottom: 0;
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
+
+// Mega Menu
+.mega-menu {
+  position: fixed;
+  top: 80px; // Height of header
+  left: 0;
+  width: 100%;
+  background-color: rgba(#0d1219, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: space(xl) 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  z-index: 999;
+
+  &__container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 space(l);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: space(2xl);
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: space(m);
+  }
+
+  &__link {
+    color: $color-text-muted;
+    text-decoration: none;
+    font-size: step(-1);
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display: block;
+
+    &:hover {
+      color: $color-accent;
+      padding-left: space(xs);
+    }
+  }
+}
+
+// Mobile Menu
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0d1219;
+  padding: 100px space(l) space(xl);
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  z-index: 1000;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  &.is-open {
+    transform: translateX(0);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: space(m);
+    margin-bottom: space(xl);
+  }
+
+  &__link {
+    font-family: $font-heading;
+    font-size: step(1);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    display: block;
+  }
+
+  &__btn {
+    font-family: $font-heading;
+    font-size: step(1);
+    color: #fff;
+    background: none;
+    border: none;
+    padding: 0;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  &__arrow {
+    transition: transform 0.3s ease;
+  }
+
+  // Submenu in mobile
+  &__submenu {
+    list-style: none;
+    padding-left: space(m);
+    margin-top: space(s);
+    display: none; // Hidden by default
+    flex-direction: column;
+    gap: space(s);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+
+    &.is-open {
+      display: flex;
+    }
+  }
+
+  &__sublink {
+    color: $color-text-muted;
+    text-decoration: none;
+    font-size: step(0);
+    display: block;
+    padding: space(xs) 0;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  &__item--has-submenu {
+    &.is-active {
+      .mobile-menu__arrow {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__cta {
+    margin-top: auto;
+    background-color: $color-accent;
+    color: #000;
+    text-align: center;
+    padding: space(m);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+    font-size: step(0);
+  }
+}
+
 // Definition Section (New)
 .definition {
   background-color: $color-bg-dark;

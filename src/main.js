@@ -55,3 +55,57 @@ if (typeof Swiper !== 'undefined') {
 } else {
   console.warn('Swiper library not loaded');
 }
+
+// Mobile Menu Logic
+const hamburger = document.querySelector('.header__hamburger');
+const mobileMenu = document.querySelector('.mobile-menu');
+const body = document.body;
+
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.contains('is-open');
+    
+    if (isOpen) {
+      mobileMenu.classList.remove('is-open');
+      hamburger.classList.remove('is-active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      body.style.overflow = ''; // Restore scrolling
+    } else {
+      mobileMenu.classList.add('is-open');
+      hamburger.classList.add('is-active');
+      hamburger.setAttribute('aria-expanded', 'true');
+      body.style.overflow = 'hidden'; // Lock scrolling
+    }
+  });
+}
+
+// Mobile Submenu Toggles
+const mobileSubmenuBtns = document.querySelectorAll('.mobile-menu__btn');
+
+mobileSubmenuBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const parent = btn.parentElement;
+    const submenu = parent.querySelector('.mobile-menu__submenu');
+    
+    // Toggle active class for arrow rotation
+    parent.classList.toggle('is-active');
+    
+    // Toggle submenu visibility
+    if (submenu) {
+      submenu.classList.toggle('is-open');
+    }
+  });
+});
+
+// Close mobile menu when clicking a link (optional, but good UX)
+const mobileLinks = document.querySelectorAll('.mobile-menu__link, .mobile-menu__sublink, .mobile-menu__cta');
+mobileLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (mobileMenu.classList.contains('is-open')) {
+      mobileMenu.classList.remove('is-open');
+      hamburger.classList.remove('is-active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      body.style.overflow = '';
+    }
+  });
+});
