@@ -1,79 +1,79 @@
-/* @link https://utopia.fyi/type/calculator?c=320,15,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/type/calculator?c=320,14,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 :root {
   /* --- UTOPIA FLUID TYPE SCALE --- */
-  /* Base: 15px (Mobile) -> 20px (Desktop) */
+  /* Base: 14px (Mobile) -> 20px (Desktop) */
   /* Scale: 1.2 (Mobile) -> 1.25 (Desktop) */
 
-  /* Step -2: 10.42px -> 12.80px */
-  --step--2: clamp(0.65rem, 0.61rem + 0.21vw, 0.80rem);
+  /* Step -2: 9.72px -> 12.80px */
+  --step--2: clamp(0.61rem, 0.55rem + 0.27vw, 0.80rem);
 
-  /* Step -1: 12.50px -> 16.00px */
-  --step--1: clamp(0.78rem, 0.72rem + 0.30vw, 1.00rem);
+  /* Step -1: 11.67px -> 16.00px */
+  --step--1: clamp(0.73rem, 0.64rem + 0.38vw, 1.00rem);
 
-  /* Step 0: 15.00px -> 20.00px */
-  --step-0: clamp(0.94rem, 0.85rem + 0.43vw, 1.25rem);
+  /* Step 0: 14.00px -> 20.00px */
+  --step-0: clamp(0.88rem, 0.74rem + 0.52vw, 1.25rem);
 
-  /* Step 1: 18.00px -> 25.00px */
-  --step-1: clamp(1.13rem, 1.00rem + 0.61vw, 1.56rem);
+  /* Step 1: 16.80px -> 25.00px */
+  --step-1: clamp(1.05rem, 0.87rem + 0.71vw, 1.56rem);
 
-  /* Step 2: 21.60px -> 31.25px */
-  --step-2: clamp(1.35rem, 1.18rem + 0.84vw, 1.95rem);
+  /* Step 2: 20.16px -> 31.25px */
+  --step-2: clamp(1.26rem, 1.02rem + 0.96vw, 1.95rem);
 
-  /* Step 3: 25.92px -> 39.06px */
-  --step-3: clamp(1.62rem, 1.39rem + 1.14vw, 2.44rem);
+  /* Step 3: 24.19px -> 39.06px */
+  --step-3: clamp(1.51rem, 1.19rem + 1.29vw, 2.44rem);
 
-  /* Step 4: 31.10px -> 48.83px */
-  --step-4: clamp(1.94rem, 1.64rem + 1.54vw, 3.05rem);
+  /* Step 4: 29.03px -> 48.83px */
+  --step-4: clamp(1.81rem, 1.38rem + 1.72vw, 3.05rem);
 
-  /* Step 5: 37.32px -> 61.04px */
-  /* Mobile: Reduced from ~40px to ~37px for better fit */
-  --step-5: clamp(2.33rem, 1.92rem + 2.06vw, 3.82rem);
+  /* Step 5: 34.84px -> 61.04px */
+  /* Mobile: Decreased to ~35px */
+  --step-5: clamp(2.18rem, 1.61rem + 2.28vw, 3.82rem);
 
   /* --- UTOPIA FLUID SPACE SCALE --- */
-  /* Base: 14px (Mobile) -> 20px (Desktop) - More aggressive spacing reduction */
+  /* Base: 12px (Mobile) -> 20px (Desktop) - Even tighter spacing */
 
-  /* 3XS: 3.5px -> 5px */
-  --space-3xs: clamp(0.22rem, 0.19rem + 0.13vw, 0.31rem);
+  /* 3XS: 3px -> 5px */
+  --space-3xs: clamp(0.19rem, 0.14rem + 0.17vw, 0.31rem);
 
-  /* 2XS: 7px -> 10px */
-  --space-2xs: clamp(0.44rem, 0.39rem + 0.26vw, 0.63rem);
+  /* 2XS: 6px -> 10px */
+  --space-2xs: clamp(0.38rem, 0.29rem + 0.35vw, 0.63rem);
 
-  /* XS: 10.5px -> 15px */
-  --space-xs: clamp(0.66rem, 0.58rem + 0.39vw, 0.94rem);
+  /* XS: 9px -> 15px */
+  --space-xs: clamp(0.56rem, 0.43rem + 0.52vw, 0.94rem);
 
-  /* S: 14px -> 20px */
-  --space-s: clamp(0.88rem, 0.77rem + 0.52vw, 1.25rem);
+  /* S: 12px -> 20px */
+  --space-s: clamp(0.75rem, 0.58rem + 0.70vw, 1.25rem);
 
-  /* M: 21px -> 30px */
-  --space-m: clamp(1.31rem, 1.16rem + 0.78vw, 1.88rem);
+  /* M: 18px -> 30px */
+  --space-m: clamp(1.13rem, 0.86rem + 1.04vw, 1.88rem);
 
-  /* L: 28px -> 40px */
-  --space-l: clamp(1.75rem, 1.54rem + 1.04vw, 2.50rem);
+  /* L: 24px -> 40px */
+  --space-l: clamp(1.50rem, 1.15rem + 1.39vw, 2.50rem);
 
-  /* XL: 42px -> 60px */
-  --space-xl: clamp(2.63rem, 2.31rem + 1.57vw, 3.75rem);
+  /* XL: 36px -> 60px */
+  --space-xl: clamp(2.25rem, 1.73rem + 2.09vw, 3.75rem);
 
-  /* 2XL: 56px -> 80px */
-  --space-2xl: clamp(3.50rem, 3.08rem + 2.09vw, 5.00rem);
+  /* 2XL: 48px -> 80px */
+  --space-2xl: clamp(3.00rem, 2.30rem + 2.78vw, 5.00rem);
 
-  /* 3XL: 84px -> 120px */
-  /* Mobile: Reduced from 96px to 84px */
-  --space-3xl: clamp(5.25rem, 4.62rem + 3.13vw, 7.50rem);
+  /* 3XL: 72px -> 120px */
+  /* Mobile: Decreased to 72px */
+  --space-3xl: clamp(4.50rem, 3.46rem + 4.17vw, 7.50rem);
 
   /* --- ONE-UP PAIRS --- */
 
-  /* S-M: 14px -> 30px */
-  --space-s-m: clamp(0.88rem, 0.60rem + 1.39vw, 1.88rem);
+  /* S-M: 12px -> 30px */
+  --space-s-m: clamp(0.75rem, 0.36rem + 1.57vw, 1.88rem);
 
-  /* M-L: 21px -> 40px */
-  --space-m-l: clamp(1.31rem, 0.98rem + 1.65vw, 2.50rem);
+  /* M-L: 18px -> 40px */
+  --space-m-l: clamp(1.13rem, 0.65rem + 1.91vw, 2.50rem);
 
-  /* L-XL: 28px -> 60px */
-  --space-l-xl: clamp(1.75rem, 1.19rem + 2.78vw, 3.75rem);
+  /* L-XL: 24px -> 60px */
+  --space-l-xl: clamp(1.50rem, 0.72rem + 3.13vw, 3.75rem);
 
   /* Custom Pairs */
 
-  /* XS-L: 10.5px -> 40px */
-  --space-xs-l: clamp(0.66rem, 0.14rem + 2.57vw, 2.50rem);
+  /* XS-L: 9px -> 40px */
+  --space-xs-l: clamp(0.56rem, -0.11rem + 2.70vw, 2.50rem);
 }
